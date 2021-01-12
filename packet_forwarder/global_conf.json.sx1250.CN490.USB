@@ -20,18 +20,18 @@
                 "pace_s": 10
             },
             "lbt": {
-                "enable": false,
+                "enable": true,
                 "rssi_target": -70, /* dBm */
                 "channels":[ /* 16 channels maximum */
-                    { "freq_hz": 500300000, "bandwidth": 125000, "scan_time_us": 128,  "transmit_time_ms": 400 },
-                    { "freq_hz": 500500000, "bandwidth": 125000, "scan_time_us": 128,  "transmit_time_ms": 400 },
-                    { "freq_hz": 500700000, "bandwidth": 125000, "scan_time_us": 128,  "transmit_time_ms": 400 },
-                    { "freq_hz": 500900000, "bandwidth": 125000, "scan_time_us": 128,  "transmit_time_ms": 400 },
-                    { "freq_hz": 501100000, "bandwidth": 125000, "scan_time_us": 128,  "transmit_time_ms": 400 },
-                    { "freq_hz": 501300000, "bandwidth": 125000, "scan_time_us": 128,  "transmit_time_ms": 400 },
-                    { "freq_hz": 501500000, "bandwidth": 125000, "scan_time_us": 128,  "transmit_time_ms": 400 },
-                    { "freq_hz": 501700000, "bandwidth": 125000, "scan_time_us": 128,  "transmit_time_ms": 400 },
-                    { "freq_hz": 505300000, "bandwidth": 125000, "scan_time_us": 5000, "transmit_time_ms": 4000 }
+                    { "freq_hz": 503100000, "bandwidth": 125000, "scan_time_us": 5000,  "transmit_time_ms": 2000},
+                    { "freq_hz": 503300000, "bandwidth": 125000, "scan_time_us": 5000,  "transmit_time_ms": 1320},
+                    { "freq_hz": 503500000, "bandwidth": 125000, "scan_time_us": 5000,  "transmit_time_ms": 1320},
+                    { "freq_hz": 503700000, "bandwidth": 125000, "scan_time_us": 5000,  "transmit_time_ms": 1320},
+                    { "freq_hz": 503900000, "bandwidth": 125000, "scan_time_us": 5000,  "transmit_time_ms": 1320},
+                    { "freq_hz": 504100000, "bandwidth": 125000, "scan_time_us": 5000,  "transmit_time_ms": 1320},
+                    { "freq_hz": 504300000, "bandwidth": 125000, "scan_time_us": 5000,  "transmit_time_ms": 1320},
+                    { "freq_hz": 504500000, "bandwidth": 125000, "scan_time_us": 5000,  "transmit_time_ms": 1320},
+                    { "freq_hz": 504000000, "bandwidth": 125000, "scan_time_us": 5000, "transmit_time_ms": 4000 }
                 ]
             }
         },
@@ -74,25 +74,25 @@
             "tx_enable": false
         },
         "chan_multiSF_All": {"spreading_factor_enable": [ 5, 6, 7, 8, 9, 10, 11, 12 ]},
-        "chan_multiSF_0": {"enable": true, "radio": 0, "if": -300000},
-        "chan_multiSF_1": {"enable": true, "radio": 0, "if": -100000},
-        "chan_multiSF_2": {"enable": true, "radio": 0, "if":  100000},
-        "chan_multiSF_3": {"enable": true, "radio": 0, "if":  300000},
-        "chan_multiSF_4": {"enable": true, "radio": 1, "if": -300000},
-        "chan_multiSF_5": {"enable": true, "radio": 1, "if": -100000},
-        "chan_multiSF_6": {"enable": true, "radio": 1, "if":  100000},
-        "chan_multiSF_7": {"enable": true, "radio": 1, "if":  300000},
+        "chan_multiSF_0": {"enable": true, "radio": 0, "if": -300000},  /* 473.1 */
+        "chan_multiSF_1": {"enable": true, "radio": 0, "if": -100000},  /* 473.3 */
+        "chan_multiSF_2": {"enable": true, "radio": 0, "if":  100000},  /* 473.5 */
+        "chan_multiSF_3": {"enable": true, "radio": 0, "if":  300000},  /* 473.7 */
+        "chan_multiSF_4": {"enable": true, "radio": 1, "if": -300000},  /* 473.9 */
+        "chan_multiSF_5": {"enable": true, "radio": 1, "if": -100000},  /* 474.1 */
+        "chan_multiSF_6": {"enable": true, "radio": 1, "if":  100000},  /* 474.3 */
+        "chan_multiSF_7": {"enable": true, "radio": 1, "if":  300000},  /* 474.5 */
         "chan_Lora_std":  {"enable": true, "radio": 1, "if": -200000, "bandwidth": 250000, "spread_factor": 7,
                            "implicit_hdr": false, "implicit_payload_length": 17, "implicit_crc_en": false, "implicit_coderate": 1},
         "chan_FSK":       {"enable": true, "radio": 1, "if":  300000, "bandwidth": 125000, "datarate": 50000}
     },
 
     "gateway_conf": {
-        "gateway_ID": "AA555A0000000000",
+        "gateway_ID": "FFFFFFFFFFFFFFFF",
         /* change with default server address/ports */
-        "server_address": "localhost",
-        "serv_port_up": 1730,
-        "serv_port_down": 1730,
+        "server_address": "chirpstack-server",
+        "serv_port_up": 1700,
+        "serv_port_down": 1700,
         /* adjust the following parameters for your network */
         "keepalive_interval": 10,
         "stat_interval": 30,
@@ -114,13 +114,5 @@
         "beacon_bw_hz": 125000,
         "beacon_power": 14,
         "beacon_infodesc": 0
-    },
-
-    "debug_conf": {
-        "ref_payload":[
-            {"id": "0xCAFE1234"},
-            {"id": "0xCAFE2345"}
-        ],
-        "log_file": "loragw_hal.log"
     }
 }
